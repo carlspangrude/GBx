@@ -12,6 +12,7 @@ const posts = defineCollection({
     pillar: z.enum(['interaction', 'threats', 'value', 'role', 'mana', 'foundations']),
     tags: z.array(z.string()).default([]),
     draft: z.boolean().default(false),
+    toc: z.boolean().default(false),
   }),
 });
 

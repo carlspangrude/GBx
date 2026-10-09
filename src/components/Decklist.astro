@@ -1,0 +1,45 @@
+---
+// Decklist with hoverable cards. Lines starting with # start a new group.
+// Usage: <Decklist title="..." main={`# Creatures\n4 Tarmogoyf`} side={`2 Duress`} note="..." />
+import Card from './Card.astro';
+interface Props { title: string; main: string; side?: string; note?: string }
+const { title, main, side, note } = Astro.props;
+type Group = { title: string; cards: { qty: number; name: string }[] };
+function parse(text: string): Group[] {
+  const groups: Group[] = [];
+  let cur: Group = { title: '', cards: [] };
+  groups.push(cur);
+  for (const raw of text.trim().split('\n')) {
+    const l = raw.trim();
+    if (!l) continue;
+    if (l.startsWith('#')) { cur = { title: l.replace(/^#+\s*/, ''), cards: [] }; groups.push(cur); continue; }
+    const m = l.match(/^(\d+)x?\s+(.+)$/);
+    if (m) cur.cards.push({ qty: Number(m[1]), name: m[2] });
+  }
+  return groups.filter((g) => g.cards.length);
+}
+const total = (gs: Group[]) => gs.reduce((n, g) => n + g.cards.reduce((a, c) => a + c.qty, 0), 0);
+const mainGroups = parse(main);
+const sideGroups = side ? parse(side) : [];
+---
+<section class="decklist">
+  <header>
+    <p class="deck-title">{title}</p>
+    <p class="deck-count">{total(mainGroups)} main{sideGroups.length ? `, ${total(sideGroups)} sideboard` : ''}</p>
+  </header>
+  <div class="deck-cols">
+    {mainGroups.map((g) => (
+      <div>
+        <p class="deck-group">{g.title} ({g.cards.reduce((a, c) => a + c.qty, 0)})</p>
+        <ul>{g.cards.map((c) => <li><span class="qty">{c.qty}</span><Card name={c.name} /></li>)}</ul>
+      </div>
+    ))}
+    {sideGroups.map((g) => (
+      <div>
+        <p class="deck-group">Sideboard ({g.cards.reduce((a, c) => a + c.qty, 0)})</p>
+        <ul>{g.cards.map((c) => <li><span class="qty">{c.qty}</span><Card name={c.name} /></li>)}</ul>
+      </div>
+    ))}
+  </div>
+  {note && <p class="deck-note">{note}</p>}
+</section>

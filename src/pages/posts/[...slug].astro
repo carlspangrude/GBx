@@ -8,7 +8,8 @@ export async function getStaticPaths() {
   return posts.map((post) => ({ params: { slug: post.id }, props: { post } }));
 }
 const { post } = Astro.props;
-const { Content } = await render(post);
+const { Content, headings } = await render(post);
+const tocItems = headings.filter((h) => h.depth === 2 && h.slug !== 'footnote-label');
 const fmt = new Intl.DateTimeFormat('en-US', { dateStyle: 'long', timeZone: 'UTC' });
 ---
 <Base title={post.data.title} description={post.data.description}>
@@ -21,6 +22,12 @@ const fmt = new Intl.DateTimeFormat('en-US', { dateStyle: 'long', timeZone: 'UTC
       <h1>{post.data.title}</h1>
       <p class="lede">{post.data.description}</p>
     </header>
+    {post.data.toc && tocItems.length > 0 && (
+      <nav class="toc" aria-label="On this page">
+        <p>On this page</p>
+        <ul>{tocItems.map((h) => <li><a href={`#${h.slug}`}>{h.text}</a></li>)}</ul>
+      </nav>
+    )}
     <div class="post-body"><Content /></div>
   </article>
 </Base>

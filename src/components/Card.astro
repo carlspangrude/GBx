@@ -1,0 +1,8 @@
+---
+// Inline card reference. Hover (desktop) or tap/focus (mobile) shows the card image.
+// Usage: <Card name="Tarmogoyf" />   or   <Card name="Tarmogoyf">Goyf</Card>
+interface Props { name: string }
+const { name } = Astro.props;
+const img = `https://api.scryfall.com/cards/named?format=image&version=normal&exact=${encodeURIComponent(name)}`;
+---
+<span class="card" tabindex="0"><span class="card-label"><slot>{name}</slot></span><span class="card-pop" aria-hidden="true"><img src={img} alt="" loading="lazy" width="244" height="340" /></span></span>

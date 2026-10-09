@@ -1,0 +1,244 @@
+---
+title: "Design reference: every component in one post"
+description: "A test page showing each formatting option available for posts, with notes on when to use it. Delete or set draft: true before launch."
+date: 2026-10-08
+pillar: foundations
+tags: [meta]
+toc: true
+---
+import Card from '../../components/Card.astro';
+import CardRow from '../../components/CardRow.astro';
+import Decklist from '../../components/Decklist.astro';
+import Callout from '../../components/Callout.astro';
+import PullQuote from '../../components/PullQuote.astro';
+import Badge from '../../components/Badge.astro';
+import Mana from '../../components/Mana.astro';
+import Figure from '../../components/Figure.astro';
+
+This post exists to show what is possible. Every section demonstrates one tool and says when to reach for it. The table of contents above comes from the `toc: true` line in this post's frontmatter, which is worth turning on for any long post.
+
+## Text and lists
+
+Regular paragraphs are the default. You can use **bold** for key terms on first mention, *italics* for emphasis or titles, and ~~strikethrough~~ for corrections. Use `inline code` for anything literal, such as a file name or a format. There is also <mark>highlighted text</mark> for the one sentence a skimming reader should not miss, and <kbd>Ctrl</kbd> + <kbd>F</kbd> style key labels, though you will rarely need them.
+
+An unordered list is for items with no order:
+
+- Cheap disruption
+- Efficient threats
+  - Relevant on the turn they land
+  - Good without support
+- Card advantage on a one-for-one chassis
+
+An ordered list is for steps or rankings:
+
+1. Mulligan decisions
+2. Turn-one and turn-two plays
+3. Choosing your role
+
+### A third-level heading
+
+Use `##` headings for main sections (they feed the table of contents) and `###` for subsections within them. Avoid going deeper than that.
+
+## Links
+
+Internal links stay on the site, such as [the pillars page](/pillars/) or the [introduction post](/posts/what-is-good-stuff-doctrine/). External links, such as [Scryfall](https://scryfall.com), work the same way. Use descriptive link text rather than "click here".
+
+## Card references in running text
+
+When you name a card, wrap it in the card component. Hover over <Card name="Tarmogoyf" /> on a desktop, or tap it on a phone, to see the image. You can show different text from the card's name, like <Card name="Tarmogoyf">Goyf</Card>, and it still pulls the right image. This is the component to use constantly in prose: <Card name="Thoughtseize" /> trading for their best card, <Card name="Fatal Push" /> on a two-drop, and <Card name="Liliana of the Veil" /> turning a one-for-one into more.
+
+<Callout type="note" title="Tip for card names">
+Spell the name exactly as printed, including punctuation, such as <Card name="Kolaghan's Command" />. Double-faced cards like <Card name="Huntmaster of the Fells" /> work with just the front name.
+</Callout>
+
+### Card images as a figure
+
+When a card itself is the subject, show its image. Clicking an image opens the card on Scryfall.
+
+<CardRow names={['Tarmogoyf', 'Thoughtseize', 'Liliana of the Veil']} caption="Three cards that define the philosophy: a threat, a disruption spell, and a value engine." />
+
+## Mana symbols
+
+Mana costs can sit inline: <Card name="Dark Confidant" /> costs <Mana cost="{1}{B}" />, <Card name="Tarmogoyf" /> costs <Mana cost="{1}{G}" />, and <Card name="Abrupt Decay" /> costs <Mana cost="{B}{G}" />. Hybrid and generic symbols work too, like <Mana cost="{2}{R/G}" /> or <Mana cost="{X}{U}{U}" />.
+
+## Decklists
+
+A decklist component groups cards by type, totals the counts, and makes every card hoverable. Use it whenever you are discussing a specific 75.
+
+<Decklist
+  title="Example Jund shell"
+  note="Illustrative list for layout testing only, not a tournament result."
+  main={`
+# Creatures
+4 Dark Confidant
+4 Tarmogoyf
+2 Scavenging Ooze
+3 Huntmaster of the Fells
+2 Bloodbraid Elf
+# Spells
+4 Thoughtseize
+2 Inquisition of Kozilek
+4 Lightning Bolt
+3 Terminate
+3 Abrupt Decay
+3 Kolaghan's Command
+2 Liliana of the Veil
+# Lands
+4 Verdant Catacombs
+3 Bloodstained Mire
+2 Wooded Foothills
+2 Blood Crypt
+2 Overgrown Tomb
+1 Stomping Ground
+2 Blackcleave Cliffs
+1 Treetop Village
+3 Swamp
+2 Forest
+2 Mountain
+`}
+  side={`
+2 Maelstrom Pulse
+2 Anger of the Gods
+2 Ancient Grudge
+2 Duress
+2 Thrun, the Last Troll
+2 Fulminator Mage
+3 Dismember
+`}
+/>
+
+## Blockquotes and pull quotes
+
+A standard blockquote is for quoting someone else or setting off a short principle:
+
+> The goal of the early game is not to win. It's to arrive at the late game even or ahead.
+>
+> A line like this can have a second paragraph.
+
+A pull quote is larger and is for the one idea you want a reader to remember from a section. Use it sparingly, once per post at most.
+
+<PullQuote cite="From the introduction post">You aren't trying to win by doing something powerful. You're trying to win by never being the one who falls behind.</PullQuote>
+
+## Tables
+
+A plain table works for comparisons with a few columns:
+
+| Style | Wins by | How good stuff differs |
+|---|---|---|
+| Synergy and combo | Assembling pieces that are weak alone | Every card works without help |
+| Pure aggro | Pressure before the opponent stabilizes | It trades first and attacks later |
+| Draw-go control | Answering everything, then one finisher | More threats, more done on its own turn |
+
+Add badges for scannable ratings. The badge always includes a word, so the meaning does not depend on color:
+
+| Matchup | Your role | Rating |
+|---|---|---|
+| Burn | Control, then stabilize | <Badge tone="even">Close</Badge> |
+| Tron | Beatdown, disrupt early | <Badge tone="bad">Unfavored</Badge> |
+| Other midrange | Whoever has the better threats | <Badge tone="even">Close</Badge> |
+| Creature combo | Disrupt, then pressure | <Badge tone="good">Favored</Badge> |
+
+Wide tables scroll sideways inside their own box on small screens rather than breaking the page.
+
+## Callouts
+
+Callouts pull a point out of the flow of the text. There are four types, and each one has a job.
+
+<Callout type="takeaways" title="Key takeaways">
+Use this at the top or bottom of a long post. State the two or three conclusions a reader should leave with.
+</Callout>
+
+<Callout type="tip" title="Tip">
+Use for practical advice a reader can act on, such as a sequencing trick or a sideboard swap.
+</Callout>
+
+<Callout type="note" title="Note">
+Use for context that is useful but not essential, such as a rules clarification or a format caveat.
+</Callout>
+
+<Callout type="warning" title="Watch out">
+Use for traps and common mistakes, like a play that looks right but loses to a specific card.
+</Callout>
+
+## Columns
+
+Two columns suit pros and cons, or two cards or plans compared side by side. They stack on narrow screens.
+
+<div class="cols">
+<div>
+
+### Strengths
+
+- High floor in every matchup
+- Flexible against unknown decks
+- Rewards good sequencing
+
+</div>
+<div>
+
+### Weaknesses
+
+- Loses to decks that ignore the board
+- Struggles against raw power
+- Mana costs life and consistency
+
+</div>
+</div>
+
+## Collapsible sections
+
+Use these for detail most readers will skip, such as a full sideboard guide or a long list of exceptions, so the main text stays readable.
+
+<details>
+<summary>Sideboard guide: against Tron</summary>
+
+Bring in the discard and land destruction, and take out the narrow creature removal. You want to be the beatdown in this matchup. Cut slow cards that don't affect their first three turns.
+
+</details>
+
+<details>
+<summary>Sideboard guide: against Burn</summary>
+
+Bring in lifegain and cheap blockers. Trim the discard spells that cost life, such as <Card name="Thoughtseize" />.
+
+</details>
+
+## Images and figures
+
+Put image files in `public/images/` and reference them with the figure component, which adds a caption. This is the place for charts, screenshots, and diagrams. The image below adapts to light and dark mode.
+
+<Figure src="/images/mana-curve.svg" alt="Bar chart of an example mana curve: 16 one-drops, 13 two-drops, 9 three-drops, 4 four-drops, 2 five-plus." caption="Illustrative mana curve. Replace with a real chart from your own list." />
+
+A plain Markdown image also works, as in `![alt text](/images/name.png)`, but it has no caption.
+
+## Code blocks
+
+Code blocks are mostly useful for plain-text decklists that readers can copy into an app, or for notation:
+
+```text
+4 Tarmogoyf
+4 Dark Confidant
+4 Thoughtseize
+
+Sideboard
+2 Duress
+```
+
+## Checklists
+
+Task-style lists work well for pre-game or mulligan checklists readers can follow:
+
+- [x] Is the hand good with no other cards?
+- [x] Do I have a play on turns one and two?
+- [ ] Do I know my role in this matchup?
+
+## Dividers and footnotes
+
+A horizontal rule marks a hard break between ideas:
+
+---
+
+Footnotes keep side details out of the main text.[^1] They collect at the bottom and link back to where they were referenced.[^2]
+
+[^1]: A footnote is a good place for a source, a correction, or a tangent that would interrupt the argument.
+[^2]: Keep them short. If a footnote needs a paragraph, it probably belongs in the post.

@@ -1,0 +1,6 @@
+---
+// tone: good | bad | even. Always includes text, so meaning never depends on color alone.
+interface Props { tone?: 'good' | 'bad' | 'even' }
+const { tone = 'even' } = Astro.props;
+---
+<span class={`badge badge-${tone}`}><slot /></span>

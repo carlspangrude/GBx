@@ -1,0 +1,9 @@
+---
+// Image with caption. Put files in /public/images and use src="/images/name.svg".
+interface Props { src: string; alt: string; caption?: string }
+const { src, alt, caption } = Astro.props;
+---
+<figure class="figure">
+  <img src={src} alt={alt} loading="lazy" />
+  {caption && <figcaption>{caption}</figcaption>}
+</figure>

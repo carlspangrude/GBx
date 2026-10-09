@@ -1,0 +1,7 @@
+---
+// Usage: <Mana cost="{1}{B}{B}" />
+interface Props { cost: string }
+const { cost } = Astro.props;
+const symbols = [...cost.matchAll(/\{([^}]+)\}/g)].map((m) => m[1].replace('/', ''));
+---
+<span class="mana" role="img" aria-label={cost}>{symbols.map((s) => <img src={`https://svgs.scryfall.io/card-symbols/${s}.svg`} alt="" loading="lazy" />)}</span>
