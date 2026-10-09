@@ -1,0 +1,19 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { pillars } from '../data/pillars';
+interface Props { posts: CollectionEntry<'posts'>[] }
+const { posts } = Astro.props;
+const fmt = new Intl.DateTimeFormat('en-US', { dateStyle: 'medium', timeZone: 'UTC' });
+---
+<ul class="post-list">
+  {posts.map((p) => (
+    <li>
+      <div class="meta">
+        <time datetime={p.data.date.toISOString()}>{fmt.format(p.data.date)}</time>
+        &nbsp;in <a href={`/pillars/${p.data.pillar}/`}>{pillars[p.data.pillar].name}</a>
+      </div>
+      <h3><a href={`/posts/${p.id}/`}>{p.data.title}</a></h3>
+      <p>{p.data.description}</p>
+    </li>
+  ))}
+</ul>
