@@ -15,3 +15,9 @@ Add an `.md` or `.mdx` file to `src/content/posts/`. Frontmatter:
 Push to GitHub, import the repo in Vercel. Astro is auto-detected; no config needed.
 Then set `site` in `astro.config.mjs` to your real domain.
 Note: quote frontmatter strings that contain a colon.
+
+## Post components
+See the "Design reference" post for live examples. Import what you need at the top of an `.mdx` post:
+`Card`, `CardRow`, `Decklist`, `Callout`, `PullQuote`, `Badge`, `Mana`, `Figure` (all in `src/components/`).
+Set `toc: true` in frontmatter for a table of contents. Set `draft: true` to hide a post.
+Card images and mana symbols load from Scryfall.

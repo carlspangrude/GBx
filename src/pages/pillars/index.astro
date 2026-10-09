@@ -1,15 +1,12 @@
 ---
 import Base from '../../layouts/Base.astro';
-import { pillars, pillarKeys } from '../../data/pillars';
+import PillarTile from '../../components/PillarTile.astro';
+import { pillarKeys } from '../../data/pillars';
 ---
 <Base title="Pillars">
   <div class="page">
     <h1>Pillars</h1>
     <p class="lede">The recurring components of the philosophy. Each one collects the posts that explain it.</p>
-    <ul class="pillars">
-      {pillarKeys.map((k) => (
-        <li><a href={`/pillars/${k}/`}>{pillars[k].name}</a><p>{pillars[k].blurb}</p></li>
-      ))}
-    </ul>
+    <div class="tiles">{pillarKeys.map((k) => <PillarTile k={k} />)}</div>
   </div>
 </Base>

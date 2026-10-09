@@ -2,30 +2,42 @@
 import { getCollection } from 'astro:content';
 import Base from '../layouts/Base.astro';
 import PostList from '../components/PostList.astro';
-import { pillars, pillarKeys } from '../data/pillars';
+import PillarTile from '../components/PillarTile.astro';
+import { pillarKeys } from '../data/pillars';
+import { imgUrl } from '../lib/scryfall';
 const posts = (await getCollection('posts', (p) => !p.data.draft))
   .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+// The hand: each card opens the pillar it represents.
+const hand = [
+  { name: 'Thoughtseize', href: '/pillars/interaction/' },
+  { name: 'Tarmogoyf', href: '/pillars/threats/' },
+  { name: 'Liliana of the Veil', href: '/pillars/value/' },
+];
 ---
 <Base>
-  <div class="page">
-    <h1 style="max-width: 18ch">Win by never falling behind.</h1>
-    <p class="lede">
-      A reference on midrange built from individually powerful cards: cheap disruption,
-      efficient threats, and 1-for-1 trades until card quality takes over. Jund is the
-      touchstone, but the philosophy works in any colors.
-    </p>
-
-    <h2 class="section-title">The pillars</h2>
-    <ul class="pillars">
-      {pillarKeys.map((k) => (
-        <li>
-          <a href={`/pillars/${k}/`}>{pillars[k].name}</a>
-          <p>{pillars[k].blurb}</p>
-        </li>
+  <section class="hero">
+    <div class="hero-text">
+      <h1>Win by never falling behind.</h1>
+      <p class="lede">
+        A reference on midrange built from individually powerful cards: cheap disruption,
+        efficient threats, and 1-for-1 trades until card quality takes over. Jund is the
+        touchstone, but the philosophy works in any colors.
+      </p>
+      <p class="actions">
+        <a class="button" href="/posts/what-is-good-stuff-doctrine/">Start with the introduction</a>
+        <a class="textlink" href="/pillars/">Browse the pillars</a>
+      </p>
+    </div>
+    <div class="fan" aria-label="Three cards that define the philosophy">
+      {hand.map((c) => (
+        <a href={c.href}><img src={imgUrl(c.name)} alt={c.name} width="244" height="340" fetchpriority="high" /></a>
       ))}
-    </ul>
+    </div>
+  </section>
 
-    <h2 class="section-title">Latest posts</h2>
-    <PostList posts={posts.slice(0, 5)} />
-  </div>
+  <h2 class="section-title">The pillars</h2>
+  <div class="tiles">{pillarKeys.map((k) => <PillarTile k={k} />)}</div>
+
+  <h2 class="section-title">Latest posts</h2>
+  <PostList posts={posts.slice(0, 5)} />
 </Base>

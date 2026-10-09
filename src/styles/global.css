@@ -5,6 +5,7 @@
   --rule: #cbd0c6;
   --moss: #2f5c3b;
   --ember: #9e3b2f;
+  --tb: #2b2833; --tr: var(--ember); --tg: var(--moss);
   --sans: 'Schibsted Grotesk Variable', system-ui, sans-serif;
   --serif: 'Literata Variable', Georgia, serif;
   --measure: 66ch;
@@ -16,7 +17,7 @@
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme='light']) {
     --bg: #141815; --ink: #e4e7e0; --muted: #98a299; --rule: #2d352f;
-    --moss: #86bb91; --ember: #de8573;
+    --moss: #86bb91; --ember: #de8573; --tb: #a79fba;
   }
 }
 *, *::before, *::after { box-sizing: border-box; }
@@ -27,6 +28,7 @@ body {
   min-height: 100vh; display: flex; flex-direction: column;
 }
 main { flex: 1; }
+.tone-b { --tone: var(--tb); } .tone-r { --tone: var(--tr); } .tone-g { --tone: var(--tg); }
 .wrap { width: min(100% - 2.5rem, var(--wide)); margin-inline: auto; }
 .prose { max-width: var(--measure); }
 
@@ -46,7 +48,10 @@ img { max-width: 100%; height: auto; }
 /* Header / footer */
 .site-header { border-bottom: 1px solid var(--rule); }
 .site-header .wrap { display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; padding-block: 1.1rem; flex-wrap: wrap; }
-.brand { font: 700 1.1rem var(--sans); letter-spacing: -0.01em; color: var(--ink); text-decoration: none; }
+.brand { display: inline-flex; align-items: center; gap: 0.6rem; font: 700 1.1rem var(--sans); letter-spacing: -0.01em; color: var(--ink); text-decoration: none; }
+.mark { display: block; flex: none; }
+.foot-brand { display: inline-flex; align-items: center; gap: 0.6rem; }
+.foot-brand .mark { width: 22px; height: auto; }
 .brand:hover { color: var(--moss); }
 .site-nav { display: flex; gap: 1.4rem; font: 500 0.95rem var(--sans); }
 .site-nav a { color: var(--muted); text-decoration: none; }
@@ -70,7 +75,10 @@ img { max-width: 100%; height: auto; }
 
 /* Post list */
 .post-list { list-style: none; padding: 0; margin: 0; }
-.post-list li { padding-block: 1.4rem; border-bottom: 1px solid var(--rule); }
+.post-list li { display: grid; grid-template-columns: 12rem minmax(0, 1fr); gap: 1.5rem; align-items: start; padding-block: 1.4rem; border-bottom: 1px solid var(--rule); }
+.post-list .thumb { display: block; border-top: 3px solid var(--tone, var(--moss)); }
+.post-list .thumb img { display: block; width: 100%; height: auto; aspect-ratio: 626 / 457; object-fit: cover; background: var(--rule); }
+@media (max-width: 36rem) { .post-list li { grid-template-columns: 1fr; gap: 0.9rem; } .post-list .thumb { max-width: 18rem; } }
 .post-list h3 { margin: 0 0 0.3rem; font-size: 1.3rem; }
 .post-list h3 a { color: var(--ink); text-decoration: none; }
 .post-list h3 a:hover { color: var(--moss); }
@@ -79,7 +87,7 @@ img { max-width: 100%; height: auto; }
 .meta a { color: var(--muted); }
 
 /* Post */
-.post-head { max-width: var(--measure); margin-bottom: 2.5rem; }
+.post-head { margin-bottom: 2.5rem; }
 .post-body > :is(h2, h3, p, ul, ol, blockquote, table) { max-width: var(--measure); }
 .post-body ol, .post-body ul { padding-left: 1.4rem; }
 .post-body li { margin-bottom: 0.35rem; }
@@ -184,3 +192,45 @@ sup a { text-decoration: none; padding-inline: 0.1em; }
 .post-body kbd { font: 0.82em var(--sans); border: 1px solid var(--rule); border-bottom-width: 2px; border-radius: 3px; padding: 0.05em 0.4em; }
 .post-body :is(h2, h3) { scroll-margin-top: 1.5rem; }
 .site-footer .credit { margin: 0.9rem auto 0; width: min(100% - 2.5rem, var(--wide)); font-size: 0.8rem; }
+
+/* ===== Visual layer ===== */
+/* Hero: headline beside a fanned hand of three cards */
+.hero { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr); gap: 2rem 3rem; align-items: center; padding-block: 3.5rem 1rem; }
+.hero h1 { font-size: clamp(2.4rem, 6vw, 4.2rem); max-width: 14ch; }
+.actions { display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap; margin-top: 1.75rem; font: 600 0.98rem var(--sans); }
+.button { background: var(--moss); color: var(--bg); padding: 0.7rem 1.2rem; border-radius: 4px; text-decoration: none; }
+.button:hover { background: var(--ink); color: var(--bg); }
+.textlink { color: var(--ink); }
+.fan { display: flex; justify-content: center; padding-block: 1.5rem 2rem; }
+.fan a { display: block; flex: 0 1 11.5rem; margin-inline: -1.6rem; transform: rotate(var(--r)) translateY(var(--y)); transform-origin: 50% 110%; filter: drop-shadow(0 10px 18px rgb(0 0 0 / 0.35)); }
+.fan a:nth-child(1) { --r: -9deg; --y: 1.1rem; }
+.fan a:nth-child(2) { --r: 0deg; --y: 0; position: relative; z-index: 2; }
+.fan a:nth-child(3) { --r: 9deg; --y: 1.1rem; }
+.fan img { display: block; width: 100%; height: auto; border-radius: 4.75% / 3.4%; }
+@media (prefers-reduced-motion: no-preference) {
+  .fan a { transition: transform 0.25s ease; }
+  .fan:hover a:nth-child(1) { --r: -13deg; }
+  .fan:hover a:nth-child(3) { --r: 13deg; }
+}
+@media (max-width: 52rem) {
+  .hero { grid-template-columns: 1fr; padding-top: 2.5rem; }
+  .fan a { flex-basis: 8.5rem; margin-inline: -1.2rem; }
+}
+
+/* Pillar tiles */
+.tiles { display: grid; grid-template-columns: repeat(auto-fill, minmax(17rem, 1fr)); gap: 1.75rem 1.5rem; margin-top: 1.5rem; }
+.tile { display: block; color: var(--ink); text-decoration: none; border-top: 4px solid var(--tone); }
+.tile img { display: block; width: 100%; height: auto; aspect-ratio: 626 / 457; object-fit: cover; background: var(--rule); }
+.tile-body { display: block; padding-top: 0.8rem; }
+.tile-name { display: block; font: 650 1.1rem var(--sans); }
+.tile-blurb { display: block; margin-top: 0.25rem; color: var(--muted); font-size: 0.94rem; line-height: 1.55; }
+.tile:hover .tile-name { color: var(--moss); text-decoration: underline; text-underline-offset: 0.2em; }
+
+/* Page and post headers with artwork */
+.page-hero { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 26rem); gap: 1.5rem 3rem; align-items: center; }
+.page-hero h1 { max-width: 20ch; }
+.hero-art { margin: 0; border-top: 4px solid var(--tone, var(--moss)); }
+.hero-art img { display: block; width: 100%; height: auto; aspect-ratio: 626 / 457; object-fit: cover; background: var(--rule); }
+.hero-art figcaption { margin-top: 0.45rem; font-size: 0.8rem; }
+.page-body { margin-top: 2.5rem; }
+@media (max-width: 52rem) { .page-hero { grid-template-columns: 1fr; } .hero-art { max-width: 26rem; } }

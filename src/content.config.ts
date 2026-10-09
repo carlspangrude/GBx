@@ -13,6 +13,8 @@ const posts = defineCollection({
     tags: z.array(z.string()).default([]),
     draft: z.boolean().default(false),
     toc: z.boolean().default(false),
+    // Card name whose artwork heads the post. Falls back to the pillar's art.
+    art: z.string().optional(),
   }),
 });
 

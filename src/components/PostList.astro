@@ -1,19 +1,26 @@
 ---
 import type { CollectionEntry } from 'astro:content';
 import { pillars } from '../data/pillars';
+import { artUrl } from '../lib/scryfall';
 interface Props { posts: CollectionEntry<'posts'>[] }
 const { posts } = Astro.props;
 const fmt = new Intl.DateTimeFormat('en-US', { dateStyle: 'medium', timeZone: 'UTC' });
+const art = (p: CollectionEntry<'posts'>) => p.data.art ?? pillars[p.data.pillar].art;
 ---
 <ul class="post-list">
   {posts.map((p) => (
-    <li>
-      <div class="meta">
-        <time datetime={p.data.date.toISOString()}>{fmt.format(p.data.date)}</time>
-        &nbsp;in <a href={`/pillars/${p.data.pillar}/`}>{pillars[p.data.pillar].name}</a>
+    <li class={`tone-${pillars[p.data.pillar].tone}`}>
+      <a class="thumb" href={`/posts/${p.id}/`} tabindex="-1" aria-hidden="true">
+        <img src={artUrl(art(p))} alt="" loading="lazy" width="626" height="457" />
+      </a>
+      <div>
+        <div class="meta">
+          <time datetime={p.data.date.toISOString()}>{fmt.format(p.data.date)}</time>
+          &nbsp;in <a href={`/pillars/${p.data.pillar}/`}>{pillars[p.data.pillar].name}</a>
+        </div>
+        <h3><a href={`/posts/${p.id}/`}>{p.data.title}</a></h3>
+        <p>{p.data.description}</p>
       </div>
-      <h3><a href={`/posts/${p.id}/`}>{p.data.title}</a></h3>
-      <p>{p.data.description}</p>
     </li>
   ))}
 </ul>

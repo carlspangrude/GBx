@@ -1,0 +1,14 @@
+---
+import { pillars, type PillarKey } from '../data/pillars';
+import { artUrl } from '../lib/scryfall';
+interface Props { k: PillarKey }
+const { k } = Astro.props;
+const p = pillars[k];
+---
+<a class={`tile tone-${p.tone}`} href={`/pillars/${k}/`}>
+  <img src={artUrl(p.art)} alt={`Artwork from ${p.art}`} loading="lazy" width="626" height="457" />
+  <span class="tile-body">
+    <span class="tile-name">{p.name}</span>
+    <span class="tile-blurb">{p.blurb}</span>
+  </span>
+</a>

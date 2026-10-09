@@ -3,18 +3,28 @@ import { getCollection } from 'astro:content';
 import Base from '../../layouts/Base.astro';
 import PostList from '../../components/PostList.astro';
 import { pillars, pillarKeys } from '../../data/pillars';
+import { artUrl } from '../../lib/scryfall';
 
 export function getStaticPaths() {
   return pillarKeys.map((k) => ({ params: { pillar: k } }));
 }
 const key = Astro.params.pillar as keyof typeof pillars;
-const posts = (await getCollection('posts', (p) => !p.data.draft && p.data.pillar === key))
+const p = pillars[key];
+const posts = (await getCollection('posts', (x) => !x.data.draft && x.data.pillar === key))
   .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 ---
-<Base title={pillars[key].name} description={pillars[key].blurb}>
-  <div class="page">
-    <h1>{pillars[key].name}</h1>
-    <p class="lede">{pillars[key].blurb}</p>
+<Base title={p.name} description={p.blurb} image={artUrl(p.art)}>
+  <div class={`page page-hero tone-${p.tone}`}>
+    <div>
+      <h1>{p.name}</h1>
+      <p class="lede">{p.blurb}</p>
+    </div>
+    <figure class="hero-art">
+      <img src={artUrl(p.art)} alt={`Artwork from ${p.art}`} width="626" height="457" />
+      <figcaption>Art: {p.art}</figcaption>
+    </figure>
+  </div>
+  <div class="page-body">
     {posts.length ? <PostList posts={posts} /> : <p>No posts here yet.</p>}
   </div>
 </Base>
