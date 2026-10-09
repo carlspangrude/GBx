@@ -4,6 +4,6 @@ import sitemap from '@astrojs/sitemap';
 
 // Update `site` once you have your Vercel/custom domain.
 export default defineConfig({
-  site: 'https://good-stuff-doctrine.vercel.app',
+  site: 'https://gbx-blush.vercel.app',
   integrations: [mdx(), sitemap()],
 });
