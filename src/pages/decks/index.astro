@@ -1,0 +1,52 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import Mana from '../../components/Mana.astro';
+import { colorName, colorCost } from '../../lib/colors';
+const decks = (await getCollection('decks', (d) => !d.data.draft))
+  .sort((a, b) => b.data.year - a.data.year || a.data.title.localeCompare(b.data.title));
+const formats = [...new Set(decks.map((d) => d.data.format))].sort();
+---
+<Base title="Decklists" description="An archive of decklists, with format, year, and colors.">
+  <div class="page">
+    <h1>Decklists</h1>
+    <p class="lede">An archive of lists the site refers to, organized by format and year. Hover any card to see it.</p>
+
+    {formats.length > 1 && (
+      <div class="chips" role="group" aria-label="Filter by format">
+        <button type="button" data-filter="all" aria-pressed="true">All</button>
+        {formats.map((f) => <button type="button" data-filter={f} aria-pressed="false">{f}</button>)}
+      </div>
+    )}
+
+    <ul class="deck-index">
+      {decks.map((d) => (
+        <li class="deck-row" data-format={d.data.format}>
+          <span class="deck-colors">{d.data.colors.length > 0 && <Mana cost={colorCost(d.data.colors)} />}</span>
+          <div>
+            <h3><a href={`/decks/${d.id}/`}>{d.data.title}</a></h3>
+            <p class="meta">
+              {colorName(d.data.colors)}, {d.data.format}, {d.data.year}
+              {d.data.event && <> &middot; {d.data.event}</>}
+              {d.data.placing && <> &middot; {d.data.placing}</>}
+              {d.data.illustrative && <> &middot; Illustrative</>}
+            </p>
+            <p class="deck-summary">{d.data.summary}</p>
+          </div>
+        </li>
+      ))}
+    </ul>
+  </div>
+</Base>
+
+<script>
+  const chips = document.querySelectorAll<HTMLButtonElement>('[data-filter]');
+  const rows = document.querySelectorAll<HTMLElement>('[data-format]');
+  chips.forEach((chip) =>
+    chip.addEventListener('click', () => {
+      const f = chip.dataset.filter!;
+      chips.forEach((c) => c.setAttribute('aria-pressed', String(c === chip)));
+      rows.forEach((r) => { r.hidden = f !== 'all' && r.dataset.format !== f; });
+    })
+  );
+</script>

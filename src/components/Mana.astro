@@ -1,7 +1,9 @@
 ---
 // Usage: <Mana cost="{1}{B}{B}" />
+// To keep trailing punctuation on the same line as the symbols, put it inside the tag:
+//   <Mana cost="{G}{W}">,</Mana>
 interface Props { cost: string }
 const { cost } = Astro.props;
 const symbols = [...cost.matchAll(/\{([^}]+)\}/g)].map((m) => m[1].replace('/', ''));
 ---
-<span class="mana" role="img" aria-label={cost}>{symbols.map((s) => <img src={`https://svgs.scryfall.io/card-symbols/${s}.svg`} alt="" loading="lazy" />)}</span>
+<span style="white-space: nowrap"><span class="mana" role="img" aria-label={cost}>{symbols.map((s) => <img src={`https://svgs.scryfall.io/card-symbols/${s}.svg`} alt="" loading="lazy" />)}</span><slot /></span>

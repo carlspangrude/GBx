@@ -1,0 +1,17 @@
+---
+import { levels } from '../lib/cards';
+// A 0-3 score shown as pips plus a word, so meaning never depends on color alone.
+interface Props { label: string; score: number; why?: string; compact?: boolean }
+const { label, score, why, compact = false } = Astro.props;
+const text = `${label}: ${levels[score]} (${score} of 3)`;
+const pips = [0, 1, 2];
+---
+{compact ? (
+  <span class="mini" role="img" aria-label={text}><span class="mini-label">{label}</span><span class="pips">{pips.map((i) => <span class:list={['pip', { on: i < score }]} />)}</span></span>
+) : (
+  <div class="meter">
+    <div class="meter-head"><span class="meter-label">{label}</span><span class="meter-value">{levels[score]}</span></div>
+    <div class="pips" role="img" aria-label={text}>{pips.map((i) => <span class:list={['pip', { on: i < score }]} />)}</div>
+    {why && <p class="meter-why">{why}</p>}
+  </div>
+)}

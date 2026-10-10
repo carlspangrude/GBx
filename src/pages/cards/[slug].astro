@@ -1,0 +1,61 @@
+---
+import { getCollection, render } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import ScoreMeter from '../../components/ScoreMeter.astro';
+import Mana from '../../components/Mana.astro';
+import { pillars } from '../../data/pillars';
+import { imgUrl, artUrl } from '../../lib/scryfall';
+import { tests, total, normName } from '../../lib/cards';
+import { deckCardNames } from '../../lib/deck';
+import { colorName } from '../../lib/colors';
+
+export async function getStaticPaths() {
+  const cards = await getCollection('cards', (c) => !c.data.draft);
+  const decks = await getCollection('decks', (d) => !d.data.draft);
+  return cards.map((card) => ({
+    params: { slug: card.id },
+    props: { card, decks: decks.filter((d) => deckCardNames(d.data.main, d.data.side).has(normName(card.data.name))) },
+  }));
+}
+const { card, decks } = Astro.props;
+const d = card.data;
+const { Content } = await render(card);
+const p = pillars[d.pillar];
+---
+<Base title={d.name} description={d.verdict} image={artUrl(d.name)}>
+  <article class={`page tone-${p.tone}`}>
+    <header class="page-hero card-hero">
+      <div>
+        <div class="meta"><a href="/cards/">Card index</a> &nbsp;in <a href={`/pillars/${d.pillar}/`}>{p.name}</a></div>
+        <h1>{d.name} {d.cost && <span class="cx-cost"><Mana cost={d.cost} /></span>}</h1>
+        <p class="cx-type">{d.type}</p>
+        <p class="lede">{d.verdict}</p>
+        <p class="cx-total big">{total(d.scores)} / 9</p>
+      </div>
+      <img class="card-face" src={imgUrl(d.name)} alt={d.name} width="488" height="680" />
+    </header>
+
+    <h2 class="section-title">The three tests</h2>
+    <ol class="test-list">
+      {tests.map((t) => (
+        <li>
+          <p class="test-q">{t.q}</p>
+          <ScoreMeter label={t.label} score={d.scores[t.key]} why={d.why[t.key]} />
+        </li>
+      ))}
+    </ol>
+
+    <div class="post-body"><Content /></div>
+
+    {decks.length > 0 && (
+      <>
+        <h2 class="section-title">Appears in</h2>
+        <ul class="deck-links">
+          {decks.map((k) => (
+            <li><a href={`/decks/${k.id}/`}>{k.data.title}</a> <span class="meta">{colorName(k.data.colors)}, {k.data.format}, {k.data.year}</span></li>
+          ))}
+        </ul>
+      </>
+    )}
+  </article>
+</Base>

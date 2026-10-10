@@ -1,0 +1,56 @@
+---
+import { getCollection, render } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import Decklist from '../../components/Decklist.astro';
+import Callout from '../../components/Callout.astro';
+import Mana from '../../components/Mana.astro';
+import { colorName, colorCost } from '../../lib/colors';
+import { deckCardNames } from '../../lib/deck';
+import { normName } from '../../lib/cards';
+
+export async function getStaticPaths() {
+  const decks = await getCollection('decks', (d) => !d.data.draft);
+  const cards = await getCollection('cards', (c) => !c.data.draft);
+  return decks.map((deck) => {
+    const names = deckCardNames(deck.data.main, deck.data.side);
+    return { params: { slug: deck.id }, props: { deck, indexed: cards.filter((c) => names.has(normName(c.data.name))) } };
+  });
+}
+const { deck, indexed } = Astro.props;
+const d = deck.data;
+const { Content } = await render(deck);
+---
+<Base title={d.title} description={d.summary}>
+  <article class="page">
+    <header class="deck-head">
+      <div class="meta"><a href="/decks/">Decklists</a></div>
+      <h1>{d.title}</h1>
+      <p class="meta deck-meta">
+        {d.colors.length > 0 && <Mana cost={colorCost(d.colors)} />}
+        {colorName(d.colors)}, {d.format}, {d.year}
+        {d.event && <> &middot; {d.event}</>}
+        {d.placing && <> &middot; {d.placing}</>}
+        {d.pilot && <> &middot; Pilot: {d.pilot}</>}
+      </p>
+      <p class="lede">{d.summary}</p>
+    </header>
+
+    {d.illustrative && (
+      <Callout type="note" title="Illustrative list">This list shows how the archive works. It is not a tournament result.</Callout>
+    )}
+
+    <Decklist title="Decklist" main={d.main} side={d.side} />
+
+    <div class="post-body"><Content /></div>
+
+    {indexed.length > 0 && (
+      <>
+        <h2 class="section-title">Cards from the index</h2>
+        <ul class="chip-links">
+          {indexed.map((c) => <li><a href={`/cards/${c.id}/`}>{c.data.name}</a></li>)}
+        </ul>
+      </>
+    )}
+    {d.source && <p class="meta">Source: <a href={d.source} target="_blank" rel="noopener noreferrer">{new URL(d.source).hostname}</a></p>}
+  </article>
+</Base>

@@ -1,0 +1,63 @@
+/* ===== Card index and deck archive ===== */
+/* Score pips */
+.pips { display: inline-flex; gap: 3px; }
+.pip { width: 1.1rem; height: 0.5rem; background: var(--rule); }
+.pip.on { background: var(--tone, var(--moss)); }
+.mini { display: inline-flex; align-items: center; justify-content: space-between; gap: 0.6rem; font: 0.8rem var(--sans); color: var(--muted); }
+.mini .pip { width: 0.9rem; height: 0.42rem; }
+.meter { max-width: 34rem; }
+.meter-head { display: flex; justify-content: space-between; gap: 1rem; font: 650 0.98rem var(--sans); margin-bottom: 0.35rem; }
+.meter-value { color: var(--tone, var(--moss)); }
+.meter-why { margin: 0.5rem 0 0; color: var(--muted); font-size: 0.95rem; line-height: 1.55; }
+
+/* Card index */
+.tests { max-width: var(--measure); padding-left: 1.3rem; margin: 1.5rem 0; font-size: 0.98rem; }
+.tests li { margin-bottom: 0.35rem; }
+.jump { font: 0.92rem var(--sans); color: var(--muted); }
+.cx-list { list-style: none; margin: 0; padding: 0; }
+.cx-row { display: grid; grid-template-columns: 9rem minmax(0, 1fr) 11rem; gap: 1.25rem; align-items: start; padding-block: 1.25rem; border-bottom: 1px solid var(--rule); }
+.cx-thumb { display: block; border-top: 3px solid var(--tone, var(--moss)); }
+.cx-thumb img { display: block; width: 100%; height: auto; aspect-ratio: 626 / 457; object-fit: cover; background: var(--rule); }
+.cx-main h3 { margin: 0; font-size: 1.2rem; }
+.cx-main h3 a { color: var(--ink); text-decoration: none; }
+.cx-main h3 a:hover { color: var(--moss); }
+.cx-cost { font-size: 0.9em; margin-left: 0.4rem; white-space: nowrap; }
+.cx-type { margin: 0.15rem 0 0.4rem; font: 0.85rem var(--sans); color: var(--muted); }
+.cx-verdict { margin: 0; font-size: 0.96rem; color: var(--ink); }
+.cx-scores { display: grid; gap: 0.3rem; }
+.cx-total { font: 650 0.85rem var(--sans); color: var(--muted); text-align: right; font-variant-numeric: tabular-nums; }
+.cx-total.big { font-size: 1.3rem; color: var(--tone, var(--moss)); text-align: left; margin: 0.5rem 0 0; }
+@media (max-width: 48rem) {
+  .cx-row { grid-template-columns: 1fr; gap: 0.7rem; }
+  .cx-thumb { max-width: 16rem; }
+  .cx-scores { max-width: 14rem; }
+  .cx-total { text-align: left; }
+}
+
+/* Single card page */
+.card-hero { grid-template-columns: minmax(0, 1fr) 19rem; }
+.card-face { display: block; width: 100%; height: auto; border-radius: 4.75% / 3.4%; filter: drop-shadow(0 10px 20px rgb(0 0 0 / 0.35)); }
+@media (max-width: 52rem) { .card-face { max-width: 17rem; } }
+.test-list { list-style: none; padding: 0; margin: 0; display: grid; gap: 1.6rem; }
+.test-q { margin: 0 0 0.5rem; font: 0.88rem var(--sans); color: var(--muted); }
+.deck-links { list-style: none; padding: 0; }
+.deck-links li { margin-bottom: 0.5rem; }
+
+/* Deck archive */
+.chips { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 1.5rem 0 0.5rem; }
+.chips button { font: 600 0.88rem var(--sans); padding: 0.3rem 0.85rem; border: 1px solid var(--rule); border-radius: 999px; background: none; color: var(--muted); cursor: pointer; }
+.chips button[aria-pressed='true'] { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.deck-index { list-style: none; padding: 0; margin: 1rem 0 0; }
+.deck-row { display: grid; grid-template-columns: 6.5rem minmax(0, 1fr); gap: 1.25rem; padding-block: 1.25rem; border-bottom: 1px solid var(--rule); }
+.deck-row[hidden] { display: none; }
+.deck-colors { font-size: 1.15rem; padding-top: 0.15rem; }
+.deck-row h3 { margin: 0 0 0.2rem; font-size: 1.2rem; }
+.deck-row h3 a { color: var(--ink); text-decoration: none; }
+.deck-row h3 a:hover { color: var(--moss); }
+.deck-row .meta { margin: 0 0 0.4rem; }
+.deck-summary { margin: 0; color: var(--muted); max-width: var(--measure); }
+.deck-head { max-width: var(--measure); }
+.deck-meta { display: flex; align-items: center; flex-wrap: wrap; gap: 0.35rem 0.6rem; }
+.chip-links { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.chip-links a { display: inline-block; padding: 0.25rem 0.8rem; border: 1px solid var(--rule); border-radius: 999px; font: 600 0.88rem var(--sans); text-decoration: none; color: var(--ink); }
+.chip-links a:hover { border-color: var(--moss); color: var(--moss); }

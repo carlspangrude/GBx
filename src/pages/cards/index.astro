@@ -1,0 +1,51 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import ScoreMeter from '../../components/ScoreMeter.astro';
+import Mana from '../../components/Mana.astro';
+import { pillars, pillarKeys } from '../../data/pillars';
+import { artUrl } from '../../lib/scryfall';
+import { tests, total } from '../../lib/cards';
+const cards = await getCollection('cards', (c) => !c.data.draft);
+const groups = pillarKeys
+  .map((k) => ({
+    key: k,
+    items: cards.filter((c) => c.data.pillar === k)
+      .sort((a, b) => total(b.data.scores) - total(a.data.scores) || a.data.name.localeCompare(b.data.name)),
+  }))
+  .filter((g) => g.items.length);
+---
+<Base title="Card index" description="Cards scored against three tests: good alone, trades evenly, relevant all game.">
+  <div class="page">
+    <h1>Card index</h1>
+    <p class="lede">Every card here is scored from 0 to 3 against the same three tests, so you can see why it earns a slot, and where it falls short.</p>
+    <ol class="tests">
+      {tests.map((t) => <li><strong>{t.label}.</strong> {t.q}</li>)}
+    </ol>
+    <p class="jump">Jump to: {groups.map((g, i) => <><a href={`#${g.key}`}>{pillars[g.key].name}</a>{i < groups.length - 1 ? ', ' : ''}</>)}</p>
+
+    {groups.map((g) => (
+      <section class={`tone-${pillars[g.key].tone}`}>
+        <h2 class="section-title" id={g.key}>{pillars[g.key].name}</h2>
+        <ul class="cx-list">
+          {g.items.map((c) => (
+            <li class="cx-row">
+              <a class="cx-thumb" href={`/cards/${c.id}/`} tabindex="-1" aria-hidden="true">
+                <img src={artUrl(c.data.name)} alt="" loading="lazy" width="626" height="457" />
+              </a>
+              <div class="cx-main">
+                <h3><a href={`/cards/${c.id}/`}>{c.data.name}</a> {c.data.cost && <span class="cx-cost"><Mana cost={c.data.cost} /></span>}</h3>
+                <p class="cx-type">{c.data.type}</p>
+                <p class="cx-verdict">{c.data.verdict}</p>
+              </div>
+              <div class="cx-scores">
+                {tests.map((t) => <ScoreMeter compact label={t.short} score={c.data.scores[t.key]} />)}
+                <span class="cx-total">{total(c.data.scores)} / 9</span>
+              </div>
+            </li>
+          ))}
+        </ul>
+      </section>
+    ))}
+  </div>
+</Base>
