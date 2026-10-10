@@ -5,6 +5,18 @@
     "art_crop": "https://cards.scryfall.io/art_crop/front/3/b/3b1e92b4-6e53-4dba-a572-c67e01965ac5.jpg?1783940344",
     "normal": "https://cards.scryfall.io/normal/front/3/b/3b1e92b4-6e53-4dba-a572-c67e01965ac5.jpg?1783940344"
   },
+  "Accursed Centaur": {
+    "set": "Onslaught",
+    "released": "2002-10-07",
+    "art_crop": "https://cards.scryfall.io/art_crop/front/8/9/894556d8-6d5c-431b-a45d-26cd37c5f456.jpg?1783945075",
+    "normal": "https://cards.scryfall.io/normal/front/8/9/894556d8-6d5c-431b-a45d-26cd37c5f456.jpg?1783945075"
+  },
+  "Alms of the Vein": {
+    "set": "Shadows over Innistrad",
+    "released": "2016-04-08",
+    "art_crop": "https://cards.scryfall.io/art_crop/front/7/9/79b80948-a3cd-4962-8fce-d58f2db7e68e.jpg?1783937781",
+    "normal": "https://cards.scryfall.io/normal/front/7/9/79b80948-a3cd-4962-8fce-d58f2db7e68e.jpg?1783937781"
+  },
   "Ancient Grudge": {
     "set": "Time Spiral",
     "released": "2006-10-06",
@@ -41,6 +53,12 @@
     "art_crop": "https://cards.scryfall.io/art_crop/front/6/8/68c72226-6f52-4322-8b14-18737293dfa0.jpg?1783945030",
     "normal": "https://cards.scryfall.io/normal/front/6/8/68c72226-6f52-4322-8b14-18737293dfa0.jpg?1783945030"
   },
+  "Damnation": {
+    "set": "Planar Chaos",
+    "released": "2007-02-02",
+    "art_crop": "https://cards.scryfall.io/art_crop/front/2/6/26c68473-70ca-40ba-b5c6-71ec30f88a2c.jpg?1783943151",
+    "normal": "https://cards.scryfall.io/normal/front/2/6/26c68473-70ca-40ba-b5c6-71ec30f88a2c.jpg?1783943151"
+  },
   "Dark Confidant": {
     "set": "Ravnica: City of Guilds",
     "released": "2005-10-07",
@@ -53,17 +71,41 @@
     "art_crop": "https://cards.scryfall.io/art_crop/front/0/6/064dfdeb-485f-473e-9fa0-8fdb7638cdc6.jpg?1783941314",
     "normal": "https://cards.scryfall.io/normal/front/0/6/064dfdeb-485f-473e-9fa0-8fdb7638cdc6.jpg?1783941314"
   },
+  "Doom Blade": {
+    "set": "Magic 2010",
+    "released": "2009-07-17",
+    "art_crop": "https://cards.scryfall.io/art_crop/front/6/e/6e19acff-f3dd-417a-a9ab-ea3e36c1ba61.jpg?1783942383",
+    "normal": "https://cards.scryfall.io/normal/front/6/e/6e19acff-f3dd-417a-a9ab-ea3e36c1ba61.jpg?1783942383"
+  },
   "Duress": {
     "set": "Urza's Saga",
     "released": "1998-10-12",
     "art_crop": "https://cards.scryfall.io/art_crop/front/c/a/ca367f49-0f4a-4b7f-8104-851893fbcd8a.jpg?1783946345",
     "normal": "https://cards.scryfall.io/normal/front/c/a/ca367f49-0f4a-4b7f-8104-851893fbcd8a.jpg?1783946345"
   },
+  "Eidolon of Blossoms": {
+    "set": "Journey into Nyx",
+    "released": "2014-05-02",
+    "art_crop": "https://cards.scryfall.io/art_crop/front/8/d/8dbb2112-85b9-49cf-9ed5-9273829c34f1.jpg?1783939415",
+    "normal": "https://cards.scryfall.io/normal/front/8/d/8dbb2112-85b9-49cf-9ed5-9273829c34f1.jpg?1783939415"
+  },
+  "Emrakul, the Aeons Torn": {
+    "set": "Rise of the Eldrazi",
+    "released": "2010-04-23",
+    "art_crop": "https://cards.scryfall.io/art_crop/front/6/7/67600383-bbb8-411c-b8e6-2296650bc747.jpg?1783942013",
+    "normal": "https://cards.scryfall.io/normal/front/6/7/67600383-bbb8-411c-b8e6-2296650bc747.jpg?1783942013"
+  },
   "Fatal Push": {
     "set": "Aether Revolt",
     "released": "2017-01-20",
     "art_crop": "https://cards.scryfall.io/art_crop/front/b/5/b5e81649-9954-424c-89d1-f87d73b66047.jpg?1783936764",
     "normal": "https://cards.scryfall.io/normal/front/b/5/b5e81649-9954-424c-89d1-f87d73b66047.jpg?1783936764"
+  },
+  "Force of Will": {
+    "set": "Alliances",
+    "released": "1996-06-10",
+    "art_crop": "https://cards.scryfall.io/art_crop/front/9/a/9a879b60-4381-447d-8a5a-8e0b6a1d49ca.jpg?1783947196",
+    "normal": "https://cards.scryfall.io/normal/front/9/a/9a879b60-4381-447d-8a5a-8e0b6a1d49ca.jpg?1783947196"
   },
   "Forest": {
     "set": "Unhinged",
@@ -77,6 +119,18 @@
     "art_crop": "https://cards.scryfall.io/art_crop/front/b/e/be1df367-8e85-4fd8-aa6f-f02a478fecb3.jpg?1783942726",
     "normal": "https://cards.scryfall.io/normal/front/b/e/be1df367-8e85-4fd8-aa6f-f02a478fecb3.jpg?1783942726"
   },
+  "Gitaxian Probe": {
+    "set": "New Phyrexia",
+    "released": "2011-05-13",
+    "art_crop": "https://cards.scryfall.io/art_crop/front/9/9/995486ce-58bb-4753-a812-0ca73ef1a235.jpg?1783941320",
+    "normal": "https://cards.scryfall.io/normal/front/9/9/995486ce-58bb-4753-a812-0ca73ef1a235.jpg?1783941320"
+  },
+  "Go for the Throat": {
+    "set": "Mirrodin Besieged",
+    "released": "2011-02-04",
+    "art_crop": "https://cards.scryfall.io/art_crop/front/1/c/1c665cfc-7e9a-444b-96b5-e8e4ef57a98a.jpg?1783941384",
+    "normal": "https://cards.scryfall.io/normal/front/1/c/1c665cfc-7e9a-444b-96b5-e8e4ef57a98a.jpg?1783941384"
+  },
   "Huntmaster of the Fells": {
     "set": "Dark Ascension",
     "released": "2012-02-03",
@@ -89,11 +143,23 @@
     "art_crop": "https://cards.scryfall.io/art_crop/front/6/a/6a3ff5c3-0fdb-4d54-b4e5-ce7bad9953f0.jpg?1783941984",
     "normal": "https://cards.scryfall.io/normal/front/6/a/6a3ff5c3-0fdb-4d54-b4e5-ce7bad9953f0.jpg?1783941984"
   },
+  "Kitchen Finks": {
+    "set": "Shadowmoor",
+    "released": "2008-05-02",
+    "art_crop": "https://cards.scryfall.io/art_crop/front/7/d/7d203208-8a21-4c68-afa2-4efd8726f026.jpg?1783942717",
+    "normal": "https://cards.scryfall.io/normal/front/7/d/7d203208-8a21-4c68-afa2-4efd8726f026.jpg?1783942717"
+  },
   "Kolaghan's Command": {
     "set": "Dragons of Tarkir",
     "released": "2015-03-27",
     "art_crop": "https://cards.scryfall.io/art_crop/front/7/c/7c884e1e-fecb-4330-b3de-5fc2a60f7173.jpg?1783938571",
     "normal": "https://cards.scryfall.io/normal/front/7/c/7c884e1e-fecb-4330-b3de-5fc2a60f7173.jpg?1783938571"
+  },
+  "Leatherback Baloth": {
+    "set": "Worldwake",
+    "released": "2010-02-05",
+    "art_crop": "https://cards.scryfall.io/art_crop/front/5/5/55f97b4c-42c7-4986-a150-0b8de11f0537.jpg?1783942043",
+    "normal": "https://cards.scryfall.io/normal/front/5/5/55f97b4c-42c7-4986-a150-0b8de11f0537.jpg?1783942043"
   },
   "Lightning Bolt": {
     "set": "Limited Edition Alpha",
@@ -119,11 +185,29 @@
     "art_crop": "https://cards.scryfall.io/art_crop/front/4/2/42232ea6-e31d-46a6-9f94-b2ad2416d79b.jpg?1783944227",
     "normal": "https://cards.scryfall.io/normal/front/4/2/42232ea6-e31d-46a6-9f94-b2ad2416d79b.jpg?1783944227"
   },
+  "Murderous Cut": {
+    "set": "Khans of Tarkir",
+    "released": "2014-09-26",
+    "art_crop": "https://cards.scryfall.io/art_crop/front/b/2/b2dadff2-883f-4134-a881-be145cdcbd84.jpg?1783939079",
+    "normal": "https://cards.scryfall.io/normal/front/b/2/b2dadff2-883f-4134-a881-be145cdcbd84.jpg?1783939079"
+  },
+  "Noble Hierarch": {
+    "set": "Conflux",
+    "released": "2009-02-06",
+    "art_crop": "https://cards.scryfall.io/art_crop/front/6/a/6adfe928-1305-444d-b709-1e714544daaf.jpg?1783942473",
+    "normal": "https://cards.scryfall.io/normal/front/6/a/6adfe928-1305-444d-b709-1e714544daaf.jpg?1783942473"
+  },
   "Overgrown Tomb": {
     "set": "Ravnica: City of Guilds",
     "released": "2005-10-07",
     "art_crop": "https://cards.scryfall.io/art_crop/front/f/c/fce07335-cc78-4683-b2f0-9c98a06ea1d8.jpg?1783943591",
     "normal": "https://cards.scryfall.io/normal/front/f/c/fce07335-cc78-4683-b2f0-9c98a06ea1d8.jpg?1783943591"
+  },
+  "Questing Beast": {
+    "set": "Throne of Eldraine",
+    "released": "2019-10-04",
+    "art_crop": "https://cards.scryfall.io/art_crop/front/e/4/e41cf82d-3213-47ce-a015-6e51a8b07e4f.jpg?1783932604",
+    "normal": "https://cards.scryfall.io/normal/front/e/4/e41cf82d-3213-47ce-a015-6e51a8b07e4f.jpg?1783932604"
   },
   "Scavenging Ooze": {
     "set": "Commander 2011",
@@ -131,11 +215,41 @@
     "art_crop": "https://cards.scryfall.io/art_crop/front/3/7/371ceb58-f498-4616-a7f0-eb118fe2e4ff.jpg?1783941190",
     "normal": "https://cards.scryfall.io/normal/front/3/7/371ceb58-f498-4616-a7f0-eb118fe2e4ff.jpg?1783941190"
   },
+  "Sheoldred's Edict": {
+    "set": "Phyrexia: All Will Be One",
+    "released": "2023-02-10",
+    "art_crop": "https://cards.scryfall.io/art_crop/front/a/9/a9225cc3-90f0-448f-a8d9-7c6c2796d077.jpg?1783918041",
+    "normal": "https://cards.scryfall.io/normal/front/a/9/a9225cc3-90f0-448f-a8d9-7c6c2796d077.jpg?1783918041"
+  },
+  "Siege Rhino": {
+    "set": "Khans of Tarkir",
+    "released": "2014-09-26",
+    "art_crop": "https://cards.scryfall.io/art_crop/front/9/0/9011126a-20bd-4c86-a63b-1691f79ac247.jpg?1783939053",
+    "normal": "https://cards.scryfall.io/normal/front/9/0/9011126a-20bd-4c86-a63b-1691f79ac247.jpg?1783939053"
+  },
+  "Slippery Bogle": {
+    "set": "Eventide",
+    "released": "2008-07-25",
+    "art_crop": "https://cards.scryfall.io/art_crop/front/1/9/19714d6c-2bfa-4ee0-aa2f-5ccc196bc5d8.jpg?1783942659",
+    "normal": "https://cards.scryfall.io/normal/front/1/9/19714d6c-2bfa-4ee0-aa2f-5ccc196bc5d8.jpg?1783942659"
+  },
+  "Snuff Out": {
+    "set": "Mercadian Masques",
+    "released": "1999-10-04",
+    "art_crop": "https://cards.scryfall.io/art_crop/front/1/8/18a3cca1-e50e-49b6-9e1a-f86640e3b177.jpg?1783945946",
+    "normal": "https://cards.scryfall.io/normal/front/1/8/18a3cca1-e50e-49b6-9e1a-f86640e3b177.jpg?1783945946"
+  },
   "Stomping Ground": {
     "set": "Guildpact",
     "released": "2006-02-03",
     "art_crop": "https://cards.scryfall.io/art_crop/front/a/2/a2773d8f-f906-475d-aaff-b7ca3b01f188.jpg?1783943453",
     "normal": "https://cards.scryfall.io/normal/front/a/2/a2773d8f-f906-475d-aaff-b7ca3b01f188.jpg?1783943453"
+  },
+  "Strangleroot Geist": {
+    "set": "Dark Ascension",
+    "released": "2012-02-03",
+    "art_crop": "https://cards.scryfall.io/art_crop/front/b/f/bf1fb137-205c-480f-b6dc-dfa137793ae3.jpg?1783940804",
+    "normal": "https://cards.scryfall.io/normal/front/b/f/bf1fb137-205c-480f-b6dc-dfa137793ae3.jpg?1783940804"
   },
   "Swamp": {
     "set": "Unhinged",
@@ -178,6 +292,12 @@
     "released": "2009-10-02",
     "art_crop": "https://cards.scryfall.io/art_crop/front/7/a/7abd2723-2851-4f1a-b2d0-dfcb526472c3.jpg?1783942121",
     "normal": "https://cards.scryfall.io/normal/front/7/a/7abd2723-2851-4f1a-b2d0-dfcb526472c3.jpg?1783942121"
+  },
+  "Watchwolf": {
+    "set": "Ravnica: City of Guilds",
+    "released": "2005-10-07",
+    "art_crop": "https://cards.scryfall.io/art_crop/front/9/5/95e5828a-3e54-4b9c-9e84-21880930f2d5.jpg?1783943608",
+    "normal": "https://cards.scryfall.io/normal/front/9/5/95e5828a-3e54-4b9c-9e84-21880930f2d5.jpg?1783943608"
   },
   "Wooded Foothills": {
     "set": "Onslaught",
