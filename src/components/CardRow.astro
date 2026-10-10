@@ -1,8 +1,9 @@
 ---
 // A row of card images with a caption. Usage: <CardRow names={['Tarmogoyf','Thoughtseize']} caption="..." />
+import { imgUrl } from '../lib/scryfall';
 interface Props { names: string[]; caption?: string }
 const { names, caption } = Astro.props;
-const src = (n: string) => `https://api.scryfall.com/cards/named?format=image&version=normal&exact=${encodeURIComponent(n)}`;
+const src = (n: string) => imgUrl(n);
 const page = (n: string) => `https://scryfall.com/search?q=${encodeURIComponent(`!"${n}"`)}`;
 ---
 <figure class="card-row">

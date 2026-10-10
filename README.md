@@ -21,3 +21,8 @@ See the "Design reference" post for live examples. Import what you need at the t
 `Card`, `CardRow`, `Decklist`, `Callout`, `PullQuote`, `Badge`, `Mana`, `Figure` (all in `src/components/`).
 Set `toc: true` in frontmatter for a table of contents. Set `draft: true` to hide a post.
 Card images and mana symbols load from Scryfall.
+
+## Original printings
+Card images use each card's original paper printing. After adding new cards or `art:` lines, run
+`npm run art` and commit `src/data/printings.json`. To force a specific printing, add
+`"Card Name": "setcode"` to `src/data/printing-overrides.json`, then run `npm run art -- --refresh`.

@@ -19,7 +19,7 @@ export const pillars = {
   value: {
     name: 'Grinding value',
     blurb: 'Turning 1-for-1 trades into 2-for-1s: Liliana, Kolaghan\u2019s Command, Huntmaster.',
-    art: 'Kolaghan\u2019s Command', tone: 'r',
+    art: "Kolaghan's Command", tone: 'r',
   },
   role: {
     name: 'Role and information',

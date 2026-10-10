@@ -1,0 +1,77 @@
+---
+title: "Why black sits at the center of midrange"
+description: "Color identity is the lens I use to understand a deck. Through it, black's discard and removal are the foundation of the midrange mentality."
+date: 2026-10-09
+pillar: interaction
+art: "Dark Confidant"
+tags: [black, color-identity, discard, removal, gbx]
+toc: true
+---
+
+import Card from "../../components/Card.astro";
+import CardRow from "../../components/CardRow.astro";
+import PullQuote from "../../components/PullQuote.astro";
+import Callout from "../../components/Callout.astro";
+import Mana from "../../components/Mana.astro";
+
+## How I learned the game
+
+When I first started building decks and playing constructed Magic, I actually knew the rules of the game already. I consider this a notably unique part of my journey with Magic, because learning the rules well enough to understand deeper concepts is generally the daunting learning curve where most new players start, although with Arena my experience is now probably more common. As a kid I learned the game rules by playing Duels of the Planeswalkers on my Xbox, though I didn't have a real collection so never played in paper. Did I know about layers for applying continuous effects or state-based actions? No. The game engine took care of all that for me. But I knew creatures didn't tap to block, how summoning sickness worked, and had the evergreen keywords memorized.
+
+Then in college I started playing kitchen table Magic with my friends and roommates. We all lived in a spacious apartment on 5th Avenue with a large dining room table perfect for playing games. This is where I would later play my first tabletop minis game (shout out X-Wing). My time in the 5th Ave house was an extremely formative period for several reasons, both in life and for this card game I love so much. First, I got to play against a lot more types of decks than I had ever been exposed to with the DotP digital representation of the game. Second, I started getting into the art of deck building, which remains one of my favorite aspects of the game all these years later. Eventually, these experiences led me off the kitchen table and into tournaments at my local LGS, where I started trying to really improve my skills in the more competitive environment.
+
+## Color identity
+
+There's one aspect of the game that captivated me the most, and one design principle that ended up shaping me more than anything else as a player: color identity. I'm a very philosophical person by nature, so it makes total sense that this dimension of the cardboard resonates with me so strongly. And without question I owe my deep appreciation for color identity to my friend Alan. A national champion in speech and debate, Alan was especially adept at explaining and helping me understand how and why the five colors were an integral part of the game at a foundational level.
+
+I've always gravitated toward playing creatures. It just makes sense to me. Sorry Izzet, but casting spells just izzn't my thing. It was Alan who helped me understand that a green grizzly bear and a black grizzly bear were not the same thing. Despite having the same mana cost, same power and toughness, and the same creature type, the card's color represented much more than just how it looks on the table or the manabase needed to support casting that card. Understanding the inherent nature of each color helped me to contextualize exactly why a 2/2 for <Mana cost="{B}" /> that you must pay 2 life to cast is fundamentally different from a vanilla 3/3 for <Mana cost="{G}{W}" />, despite the obvious differences those stats bring to actual gameplay.
+
+Color identity represents a good litmus test for the philosophical lens through which I most often view the game. My rationale is I want to understand what my deck's archetype is generally trying to accomplish in an abstracted sense, regardless of what exact colors or cards I'm playing in the 75. Evaluating turn-by-turn tactical decisions and weighing deck building considerations with this "what is my deck's archetype trying to do?" foundation in place makes a lot more sense to me than trying to understand those lower-level concepts in the absence of a philosophical framework. With that in mind, let me explain why I think black sits at the center of the midrange mentality.
+
+## Black at the center
+
+<PullQuote cite="Flavor text, Dark Confidant">
+  Greatness, at any cost.
+</PullQuote>
+
+<Card name="Dark Confidant" /> isn't just a staple of the GBx midrange
+archetype. To me Bob is emblematic of the entire strategic philosophy with his
+simple but profound flavor text. If I had to summarize the tenets of black's
+color identity with four words, it would be these.
+
+I recently won a game of Legacy at 6 life, where I had dealt myself all 14 points of damage. By casting three <Card name="Thoughtseize">Thoughtseizes</Card>, a free <Card name="Snuff Out" />, and cracking four fetch lands, I defeated my opponent by using my own life total as a resource. Despite life total being the metric by which the vast majority of games are won or lost, black cards leverage this resource to do something powerful. They trade an unconventional cost in the near term for advantage in the longer game.
+
+One of the primary ways I view this dynamic as mapping so well to the midrange archetype's overall approach is by electing to play individually powerful cards which perform their role without assistance. This may in fact be the core, defining principle of the "Jund 'em out" paradigm. We want to trade synergies within our deck, which rely on having multiple game pieces interacting together to generate value, for cards that provide value all on their own. Think <Card name="Eidolon of Blossoms" /> versus <Card name="Lightning Bolt" />.
+
+## Information
+
+The next ingredient black cards bring to our Good Stuff Soup is information. With the exception of a card like <Card name="Gitaxian Probe" />, which is banned in Modern, Legacy, and Pauper and restricted in Vintage, gaining access to information about the opponent's game plan (i.e., cards in their hand) is an effect almost exclusively reserved for black. In his iconic article titled "Thoughtseize You," the midrange master himself Reid Duke explains exactly why discard effects are so powerful.
+
+1. **Low cost:** Spells like <Card name="Thoughtseize" /> and <Card name="Duress" /> do much for so little.
+2. **Trade one-for-one:** Discard spells do exactly what the midrange strategy is trying to accomplish. They trade cards one-for-one in the early game, disrupting your opponent to protect your own threat or simply bridge early aggression into the mid-game where your powerful spells shine.
+3. **Information:** On top of providing good value for a low cost, these spells provide a truly invaluable advantage: being able to craft the next several turns around what your opponent has going on.
+
+As an example, Legacy includes several cards that represent format pillars which genuinely define the rules of engagement, and near the top of that list is <Card name="Force of Will" />. Force stands out as an obviously powerful card in a high power level format. And yet, there is a reasonably common play pattern in which the midrange player opens on turn 1 Thoughtseize, which resolves to reveal a hand that includes Force of Will and one or more blue cards.
+
+<CardRow
+  names={["Thoughtseize", "Force of Will"]}
+  caption="The play pattern described here: turn 1 Thoughtseize into a hand holding Force of Will."
+/>
+
+To me this example really showcases the power of disrupting the opponent with early discard spells. In most cases they really can't afford to two-for-one themselves just to counter Thoughtseize, so it almost always resolves. We can then simply take their Force of Will, or if not, at least now we know about the free counter and can play around it.
+
+The last point I'll make about how black discard spells influence the GBx strategy is in their dynamic flexibility. I don't mean flexibility in the role they play, since they always do the same thing, but instead the card slot they take up. In a midrange mirror, it is often correct to cut some of your discard spells since the games are likely to go long and they become bad topdecks. In this way, the times when discard is good (often against control strategies) versus when it isn't is pretty clear, which means you have some easy cuts for bringing in more impactful sideboard cards for the matchup.
+
+## Efficient removal
+
+Efficient spot removal is another common card design black has to offer. This fits right into the midrange strategy of trying to trade one-for-one. You can point cards like <Card name="Go for the Throat" />, <Card name="Doom Blade" />, <Card name="Fatal Push" />, and <Card name="Murderous Cut" /> at problems to make them go away. Edict effects like <Card name="Liliana of the Veil" /> or <Card name="Sheoldred's Edict" /> also provide some additional removal coverage for cards like <Card name="Emrakul, the Aeons Torn" /> or <Card name="Slippery Bogle" /> where targeted removal would fall short.
+
+## Putting it together
+
+No matter whether you are playing Abzan, Grixis, Sultai, Jund, or just straight-up Golgari, understanding the implications of adding these kinds of tools to your deck is crucial in mastering the midrange philosophy. Black discard and removal spells can open up the window for the game to become about who has a threat left standing when all the dust settles, and this is the trademark of almost every GBx-style deck with a fair game plan.
+
+<Callout type="takeaways" title="What black brings to midrange">
+  Cheap one-for-one trades that spend life instead of cards. Information about
+  the opponent's plan, mostly through discard. Efficient answers, including
+  edicts for the threats targeted removal can't reach.
+</Callout>
