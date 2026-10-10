@@ -1,0 +1,111 @@
+---
+title: "Green and the efficient threat"
+description: "Black keeps a midrange deck even. Green is what walks through the door it opens: creatures that are bigger than their cost and need nothing from the rest of the deck."
+date: 2026-10-10
+pillar: threats
+art: "Questing Beast"
+tags: [green, threats, color-identity, gbx]
+toc: true
+---
+
+import Card from "../../components/Card.astro";
+import CardRow from "../../components/CardRow.astro";
+import PullQuote from "../../components/PullQuote.astro";
+import Callout from "../../components/Callout.astro";
+import Mana from "../../components/Mana.astro";
+
+What does it mean for a creature to be a mana efficient threat? Let's take a look at a simple example.
+
+<CardRow
+  names={["Leatherback Baloth"]}
+  caption="Baloth offers an above average stat line for a relatively low cost."
+/>
+
+Green is all about big creatures and <Card name="Leatherback Baloth" /> demonstrates this concept beautifully. We can all picture the glee of a die-hard green mage casting <Card name="Noble Hierarch" /> on turn 1, <Card name="Leatherback Baloth" /> on turn 2, and crashing in for a whopping 5 after Hierarch's exalted trigger on turn 3. That's a lot of pressure very quickly.
+
+Despite <Card name="Leatherback Baloth" />'s mana efficiency though, that quick pressure can be easily disrupted by something like a well-timed <Card name="Fatal Push" /> with revolt. This is where resilience comes in.
+
+Lovingly referred to as Dr. Sideways Face, another card that drew me to green early on was <Card name="Strangleroot Geist" />. It enters with haste and comes back bigger when it dies.
+
+Looking back, I think I was responding to the same thing I look for in every threat now: a creature that is good with nothing else in the deck, and that makes the opponent's removal a bad trade. Undying turns a one-for-one into a one-for-one that leaves a bigger body behind, unless they can exile it. Geist is closer to an aggro card than a midrange one, and given its <Mana cost="{G}{G}" /> cost, the Doctor would rarely see play in a three color midrange deck. <Card name="Kitchen Finks" /> on the other hand grinds a lot harder because of its larger body and life gain, and was a solid choice for my Abzan build against aggressive strategies in the 2015 Modern era.
+
+[The black post](/posts/why-black-is-the-center-of-midrange/) was about how a midrange deck stays even: discard to see what's coming, removal to answer it. But staying even doesn't win games. Something has to be left on the table once we reach the mid-game, and in the GBx decks I play, that something is often green.
+
+## Size is green's resource
+
+Black makes resource sacrifices and gets raw power in return. Green spends mana and gets overrated stats back. As I understand its color identity, green is about growth: creatures that are bigger, or better, than they should be for what they cost. It asks for very little and returns a lot.
+
+In exchange for big bodies, green offers little removal, almost no card draw, and not much true evasion, with trample being the keyword green leverages to make blocking more challenging. Perhaps evident by my references to <Card name="Noble Hierarch" />, <Card name="Strangleroot Geist" /> and <Card name="Leatherback Baloth" />, the first deck I played in Modern was mono green stompy before adopting Abzan midrange as my preferred playstyle. My local meta in those days was extremely fair midrange heavy and I got sick and tired of spending four turns playing creatures before folding to <Card name="Damnation" />.
+
+A pile of efficient green creatures on its own is just a pile of bodies. That is exactly why green is a partner color in midrange: black clears the way, and green is what walks through.
+
+## What makes a threat efficient
+
+When I say "efficient threat," I mean a creature that passes the same tests I use for every card on this site:
+
+1. It is good with no other cards in the deck.
+2. It forces the opponent to answer it, which is how a threat trades.
+3. It stays relevant as the game goes long, either by growing or by generating value.
+
+<PullQuote>A threat's job is to make the opponent have an answer.</PullQuote>
+
+## Tarmogoyf
+
+<CardRow
+  names={["Tarmogoyf"]}
+  caption="Often a 4/5 for two mana, Goyf is the hallmark threat of Jund-style play."
+/>
+
+<Card name="Tarmogoyf" /> costs <Mana cost="{1}{G}">,</Mana> and its power and
+toughness depend on the number of card types among cards in all graveyards. In a
+deck full of one-for-one trades, that fills in on its own: fetch lands, removal,
+discard, and creatures that trade all put cards in the graveyard.
+
+I think that is the most interesting thing about it. It is the closest thing a good stuff deck has to synergy, and it asks nothing of the deck except that you play the game the way the deck already plays it.
+
+## Scavenging Ooze
+
+<Card name="Scavenging Ooze" /> also costs <Mana cost="{1}{G}">,</Mana> but it
+scales differently. For <Mana cost="{G}">,</Mana> it exiles a card from a
+graveyard, and if that card was a creature it grows and you gain a life. It is a
+mana sink, which means spare mana in the late game is never wasted, and it
+pressures graveyard strategies as a bonus.
+
+<CardRow
+  names={["Scavenging Ooze"]}
+  caption="In response, I'll eat your Griselbrand with Scooze."
+/>
+
+## The top of the curve
+
+{/* YOUR VOICE: Your own take on the four-drop slot. Which of these do you actually play, and in which deck (Abzan, Sultai, Jund)? */}
+
+At four mana, green gets a different kind of threat: one that does something the moment it lands. <Card name="Questing Beast" /> is a 4/4 with haste, vigilance, and deathtouch that is hard to block. <Card name="Thrun, the Last Troll" /> is a 4/4 that can't be countered, has hexproof, and can regenerate, which is about as resilient as you can get. And for Abzan, <Card name="Siege Rhino" /> is a 4/5 trampler with an <Card name="Alms of the Vein" /> tacked on.
+
+<CardRow
+  names={["Questing Beast", "Thrun, the Last Troll", "Siege Rhino"]}
+  caption="Three four-mana threats that are more than a body."
+/>
+
+## Why threats need black
+
+A green threat is a one-card clock. Left alone, it wins the game, so the opponent has to spend a card on it. That works because of what black does first. Discard protects the threat by taking the answer out of their hand, and removal clears the blockers that would stop it. Put together, the deck gets to be the one that is happy to trade, and then still has something left.
+
+## What green costs you
+
+- **Cheap removal trades up against you.** A one-mana answer to your two-drop is a bad exchange, especially early, before a Goyf has grown.
+- **Sweepers are a real risk.** A board of efficient creatures can lose to a single mass removal spell.
+- **Green has little reach.** Against combo decks that ignore the board or control decks with ample creature removal, you need your black cards or your sideboard to carry the matchup.
+
+## How the threats score
+
+I scored these in the [card index](/cards/). [Tarmogoyf](/cards/tarmogoyf/) and [Scavenging Ooze](/cards/scavenging-ooze/) both land on 2, 2, 3: not quite great on their own early, but among the best cards in the deck late. That is the reverse of [Thoughtseize](/cards/thoughtseize/), which scores 3, 3, 1. Strong early and weak late against weak early and strong late is why the two colors fit together so well.
+
+{/* If you change those scores in the card index, update the numbers in the paragraph above. */}
+
+<Callout type="takeaways" title="What green brings to midrange">
+  Threats that are bigger than their cost and need no support. Cards that scale,
+  so they stay relevant late, which is the mirror image of discard. And a reason
+  for the opponent to spend a card, which black's disruption can then make
+  count.
+</Callout>
